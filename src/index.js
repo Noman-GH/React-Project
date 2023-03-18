@@ -9,7 +9,9 @@ const div = document.getElementById("root");
 
 const root = ReactDOM.createRoot(div);
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 );
+
+//AIzaSyA0s9RVfehieMQCKqCqb5o5XQ4nUn74TjM
