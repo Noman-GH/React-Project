@@ -1,0 +1,4 @@
+export default {
+    GET_TODOS: "GET_TODOS",
+    GET_TODOS_FULFILLED: "GET_TODOS_FULFILLED",
+};

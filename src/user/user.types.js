@@ -1,0 +1,4 @@
+export default {
+    GET_USERS: "GET_USERS",
+    GET_USERS_FULFILLED: "GET_USERS_FULFILLED",
+};

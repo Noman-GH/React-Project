@@ -4,23 +4,23 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../common/pagination.component";
 import TableLimit from "../common/table-limit.component";
 import Table from "../common/table.component";
+import { useSelector, useDispatch } from "react-redux";
+import { getUsers } from "./user.actions";
 
 function Users() {
-    const [users, setUsers] = useState([]);
+    const dispatch = useDispatch();
+
+    const userList = useSelector((state) => state.userReducer.userList);
+    const users = userList?.users || [];
     const [sortColumn, setSortColumn] = useState();
     const [limit, setLimit] = useState(5);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        async function getUsers() {
-            try {
-                const res = await axios.get("https://dummyjson.com/users");
-                setUsers(res.data.users);
-            } catch (err) {
-                console.log(err);
-            }
+        async function getUsersList() {
+            dispatch(getUsers());
         }
-        getUsers();
+        getUsersList();
     }, []);
 
     function paginateUsers() {
@@ -78,14 +78,3 @@ function Users() {
 }
 
 export default Users;
-
-/*
-1. Table, List => 80%
-2. Form => 15%
-3. Route => 1%
-4. Complex things => 4%
-*/
-{
-    /* <i class="bi bi-arrow-down"></i>
-<i class="bi bi-arrow-up"></i> */
-}
